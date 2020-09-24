@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { scaleLinear, extent, format } from 'd3';
 
 import { useData } from './useData';
@@ -22,6 +22,9 @@ const yAxisLabelOffset = 50;
 
 
 export const App = () => {
+
+  const [selectedXValue, setSelectedXValue] = useState();
+
   // Fetch data using custom hook
   const data = useData();
 
