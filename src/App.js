@@ -8,12 +8,12 @@ import { Marks } from './Marks';
 import { Dropdown } from './Dropdown';
 
 // Variables
-const width = window.innerWidth;
+const width = 960;
 const height = window.innerHeight;
 const margin = {
-  top: 50,
+  top: 20,
   right: 50,
-  bottom: 80,
+  bottom: 130,
   left: 100,
 };
 const innerWidth = width - margin.left - margin.right;
@@ -59,19 +59,22 @@ export const App = () => {
     .nice();
 
   return (
-    <>
-      <Dropdown
-        id="x-select"
-        options={attributes}
-        selectedValue={xAttribute}
-        onSelectedValueChange={setXAttribute}
-      />
-      <Dropdown
-        id="y-select"
-        options={attributes}
-        selectedValue={yAttribute}
-        onSelectedValueChange={setYAttribute}
-      />
+    <div className="app">
+      <div className="dropdown-container">
+        <Dropdown
+          id="x-select"
+          options={attributes}
+          selectedValue={xAttribute}
+          onSelectedValueChange={setXAttribute}
+        />
+        <span className="divider">vs.</span>
+        <Dropdown
+          id="y-select"
+          options={attributes}
+          selectedValue={yAttribute}
+          onSelectedValueChange={setYAttribute}
+        />
+      </div>
       <svg width={width} height={height}>
         <g transform={`translate(${margin.left},${margin.top})`}>
           <AxisBottom
@@ -109,6 +112,6 @@ export const App = () => {
           />
         </g>
       </svg>
-    </>
+    </div>
   );
 };

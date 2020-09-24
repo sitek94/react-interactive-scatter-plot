@@ -28,7 +28,7 @@ export const useData = () => {
           value: column,
           label: column.toUpperCase()
         }));
-
+        
         setData(data);
       });
   }, []);

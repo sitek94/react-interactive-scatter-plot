@@ -11,16 +11,43 @@
   --gray-40: #635F5D; 
 }
 
-body {
+* {
   margin: 0;
-  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  overflow: hidden;
   font-family: Helvetica, sans-serif;
 }
 
 svg {
   display: block;
   margin: 0 auto;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+  color: var(--gray-30);
+
+  .dropdown {
+    font-size: 2rem;
+    color: var(--gray-30);
+  }
+
+  .divider {
+    padding: 0 10px;
+  }
 }
 
 .tick {
@@ -35,7 +62,7 @@ svg {
 
 .mark {
   fill: #E6842A;
-  transition: fill .5s;
+  transition: all 1s;
 
   &:hover {
     fill: #F6B656;
@@ -43,6 +70,6 @@ svg {
 }
 
 .axis-label {
-  font-size: 2.5em;
+  font-size: 2em;
   fill: var(--gray-30);
 }

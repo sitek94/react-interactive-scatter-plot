@@ -8,6 +8,7 @@ export const Dropdown = ({
 }) => (
   <select
     id={id}
+    className="dropdown"
     defaultValue={selectedValue}
     onChange={(event) => onSelectedValueChange(event.target.value)}
   >

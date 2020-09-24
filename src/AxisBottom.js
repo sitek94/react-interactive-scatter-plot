@@ -12,7 +12,7 @@ export const AxisBottom = ({ xScale, innerHeight, tickFormat, tickOffset = 3 }) 
       dy=".71em"
       textAnchor="middle"
     >
-      {tickFormat(tickValue)}
+      {tickValue}
     </text>
   </g>
 ))
