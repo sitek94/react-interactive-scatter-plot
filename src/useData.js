@@ -2,22 +2,35 @@ import { useState, useEffect } from 'react';
 import { csv } from 'd3';
 
 const csvUrl =
-  'https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/639388c2cbc2120a14dcf466e85730eb8be498bb/iris.csv';
+  'https://vizhub.com/curran/datasets/auto-mpg.csv';
 
 export const useData = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const row = d => {
-      d.sepal_length = +d.sepal_length;
-      d.sepal_width = +d.sepal_width;
-      d.petal_length = +d.petal_width;
-      d.petal_width = +d.petal_width;
+      // Parse the data
+      d.acceleration = +d.acceleration;
+      d.cylinders = +d.cylinders;
+      d.displacement = +d.displacement;
+      d.horsepower = +d.horsepower;
+      d.mpg = +d.mpg;
+      d.weight = +d.weight;
+      d.year = +d.year;
 
       return d;
     }
+
     csv(csvUrl, row)
-      .then(setData);
+      .then(data => {
+        // Construct attributes array and append it to data
+        data.attributes = data.columns.map(column => ({
+          value: column,
+          label: column.toUpperCase()
+        }));
+
+        setData(data);
+      });
   }, []);
 
   return data;

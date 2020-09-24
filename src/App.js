@@ -20,34 +20,22 @@ const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 const xAxisLabelOffset = 60;
 const yAxisLabelOffset = 50;
-const attributes = [
-  { value: 'sepal_length', label: 'Sepal Length' },
-  { value: 'sepal_width', label: 'Sepal Width' },
-  { value: 'petal_length', label: 'Petal Length' },
-  { value: 'petal_width', label: 'Petal Width' },
-  { value: 'species', label: 'Species' },
-];
 
-const getLabel = value => {
-  for (let i = 0; i < attributes.length; i++) {
-    if (value === attributes[i].value) {
-      return attributes[i].label;
-    }
-  }
-}
+const getLabel = value => value.toUpperCase();
 
 export const App = () => {
   // Fetch data using custom hook
   const data = useData();
+  const attributes = data ? data.attributes : [];
 
   // x attribute
-  const initialXAttribute = 'sepal_length';
+  const initialXAttribute = 'mpg';
   const [xAttribute, setXAttribute] = useState(initialXAttribute);
   const xValue = (d) => d[xAttribute];
   const xAxisLabel = getLabel(xAttribute);
 
   // y attribute
-  const initialYAttribute = 'sepal_width';
+  const initialYAttribute = 'horsepower';
   const [yAttribute, setYAttribute] = useState(initialYAttribute);
   const yValue = (d) => d[yAttribute];
   const yAxisLabel = getLabel(yAttribute);
@@ -67,7 +55,7 @@ export const App = () => {
   // y scale
   const yScale = scaleLinear()
     .domain(extent(data, yValue))
-    .range([0, innerHeight])
+    .range([innerHeight, 0])
     .nice();
 
   return (
