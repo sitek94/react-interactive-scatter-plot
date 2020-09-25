@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { scaleLinear, extent, select } from 'd3';
+import { scaleLinear, extent } from 'd3';
 
 import { useData } from './useData';
 import { marks } from './marks';
@@ -73,19 +73,21 @@ export const ScatterPlot = () => {
 
   // Draw function uses d3 to select all circles and axes and insert the data
   const draw = useCallback(() => {
+    // Bottom axis
     axis({
       ref: axisBottomRef.current,
       orientation: 'bottom',
       scale: xScale,
       tickSize: innerHeight
     });
+    // Left axis
     axis({
       ref: axisLeftRef.current,
       orientation: 'left',
       scale: yScale,
       tickSize: innerWidth
     });
-
+    // Marks
     marks({
       ref: containerRef.current,
       data,
