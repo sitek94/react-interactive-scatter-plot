@@ -1,13 +1,15 @@
-export const marks = (
-  selection,
+import { select } from 'd3';
+
+export const marks = ({
+  ref,
   data,
   circleRadius,
   yScale,
   xScale,
   yValue,
   xValue,
-) => {
-  selection
+}) => {
+  select(ref)
     .selectAll('circle')
     .data(data)
     .attr('class', 'mark')

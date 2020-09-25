@@ -74,27 +74,27 @@ export const ScatterPlot = () => {
   // Draw function uses d3 to select all circles and axes and insert the data
   const draw = useCallback(() => {
     axis({
-      selection: axisBottomRef.current,
+      ref: axisBottomRef.current,
       orientation: 'bottom',
       scale: xScale,
       tickSize: innerHeight
     });
     axis({
-      selection: axisLeftRef.current,
+      ref: axisLeftRef.current,
       orientation: 'left',
       scale: yScale,
       tickSize: innerWidth
     });
 
-    marks(
-      select(containerRef.current),
+    marks({
+      ref: containerRef.current,
       data,
       circleRadius,
       yScale,
       xScale,
       yValue,
       xValue
-    );
+    });
   }, [data, xValue, xScale, yValue, yScale]);
 
   // Draw the chart if there is data fetched
