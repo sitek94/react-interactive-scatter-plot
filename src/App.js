@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { scaleLinear, extent, select } from 'd3';
 
-import * as d3 from 'd3';
-
 import { useData } from './useData';
 import { xAxis } from './xAxis';
 import { yAxis } from './yAxis';
