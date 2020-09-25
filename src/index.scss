@@ -69,7 +69,15 @@ svg {
   }
 }
 
-.axis-label {
-  font-size: 2em;
-  fill: var(--gray-30);
+.axis {
+  .label {
+    font-size: 3em;
+    fill: var(--gray-30);
+  }
+
+  .tick {
+    text {
+      font-size: 1.7em;
+    }
+  }
 }

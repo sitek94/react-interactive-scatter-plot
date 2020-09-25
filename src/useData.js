@@ -5,7 +5,7 @@ const csvUrl =
   'https://vizhub.com/curran/datasets/auto-mpg.csv';
 
 export const useData = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const row = d => {
@@ -22,15 +22,7 @@ export const useData = () => {
     }
 
     csv(csvUrl, row)
-      .then(data => {
-        // Construct attributes array and append it to data
-        data.attributes = data.columns.map(column => ({
-          value: column,
-          label: column.toUpperCase()
-        }));
-        
-        setData(data);
-      });
+      .then(setData);
   }, []);
 
   return data;
