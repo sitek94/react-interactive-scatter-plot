@@ -1,6 +1,6 @@
 import { axisBottom } from 'd3';
 
-export const xAxis = (selection, xScale, innerHeight, tickPadding = 10) => {
+export const xAxis = (selection, xScale, innerHeight, tickPadding = 15) => {
 
   // Create axis
   const axis = axisBottom(xScale)

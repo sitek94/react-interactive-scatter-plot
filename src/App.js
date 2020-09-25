@@ -21,7 +21,7 @@ const margin = {
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 const xAxisLabelOffset = 60;
-const yAxisLabelOffset = 50;
+const yAxisLabelOffset = 70;
 const circleRadius = 8;
 
 // Data attributes objects
@@ -101,17 +101,17 @@ export const App = () => {
     <div className="app">
       <div className="dropdown-container">
         <Dropdown
-          id="x-select"
-          options={attributes}
-          selectedValue={xAttribute}
-          onSelectedValueChange={setXAttribute}
-        />
-        <span className="divider">vs.</span>
-        <Dropdown
           id="y-select"
           options={attributes}
           selectedValue={yAttribute}
           onSelectedValueChange={setYAttribute}
+        />
+        <span className="divider">vs.</span>
+        <Dropdown
+          id="x-select"
+          options={attributes}
+          selectedValue={xAttribute}
+          onSelectedValueChange={setXAttribute}
         />
       </div>
       <svg width={width} height={height}>
